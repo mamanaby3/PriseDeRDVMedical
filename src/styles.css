@@ -1,1 +1,93 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+/* Style pour l'image de fond */
+body {
+  background: url('assets/assets/images/A.jpg') no-repeat center center fixed; /* Assurez-vous que le chemin est correct */
+  background-size: cover;
+}
+
+/* Style pour le formulaire */
+.container {
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+/* Header Styles */
+.header {
+  background-color: #ffffff; /* Background color is white */
+  color: #333;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd; /* Light border for separation */
+}
+
+.header .logo {
+  width: 80px; /* Adjust size as needed */
+  margin-right: 15px;
+}
+
+.header .hospital-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .hospital-info h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #004d99;
+  font-weight: bold;
+}
+
+.header .hospital-info p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.header .contact-info {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.header .contact-info span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.header .social-icons {
+  margin-top: 10px;
+}
+
+.header .social-icons a {
+  color: #004d99;
+  font-size: 22px;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.header .social-icons a:hover {
+  color: #007bff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .header .row {
+    text-align: center;
+  }
+
+  .header .contact-info,
+  .header .social-icons {
+    margin: 10px 0;
+  }
+
+  .header .hospital-info {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
