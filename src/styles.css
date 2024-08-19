@@ -1,93 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importation de Bootstrap */
 @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
-/* Style pour l'image de fond */
-body {
-  background: url('assets/assets/images/A.jpg') no-repeat center center fixed; /* Assurez-vous que le chemin est correct */
+
+/* Style pour le conteneur avec image de fond */
+.login-background {
+  background-image: url('assets/assets/images/A.jpg'); /* Remplace avec le chemin vers ton image */
   background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Assure que le conteneur couvre toute la hauteur de la vue */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style pour le formulaire */
-.container {
-  max-width: 600px;
-  padding: 2rem;
-}
 
+/* Style spécifique pour le formulaire */
 .form-container {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-/* Header Styles */
-.header {
-  background-color: #ffffff; /* Background color is white */
-  color: #333;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd; /* Light border for separation */
+
+
+/* Style pour le container avec une couleur de fond */
+.background-container {
+  background-color: #ffffff; /* Couleur de fond pour le container */
+  padding: 20px; /* Espacement interne */
+  border-radius: 8px; /* Coins arrondis (optionnel) */
+  width: 100%; /* Prend toute la largeur disponible */
+}
+/* Style pour le container à l'intérieur du header */
+.header .container {
+  display: flex; /* Utilisation du Flexbox */
+  align-items: center; /* Alignement vertical */
+  justify-content: space-between; /* Espacement entre les éléments */
 }
 
-.header .logo {
-  width: 80px; /* Adjust size as needed */
-  margin-right: 15px;
+/* Style pour le contenu de l'en-tête */
+.header-content {
+  display: flex; /* Utilisation du Flexbox */
+  align-items: center; /* Alignement vertical */
 }
 
-.header .hospital-info {
-  display: flex;
-  flex-direction: column;
+/* Style pour le logo */
+.logo {
+  width: 80px; /* Ajuster la taille du logo */
+  height: auto; /* Maintien du ratio d'aspect */
+  margin-right: 20px; /* Espacement à droite du logo */
 }
 
-.header .hospital-info h1 {
-  margin: 0;
-  font-size: 28px;
-  color: #004d99;
-  font-weight: bold;
+/* Style pour les informations de l'hôpital */
+.hospital-info {
+  text-align: left; /* Alignement du texte */
 }
 
-.header .hospital-info p {
-  margin: 0;
-  font-size: 16px;
-  color: #666;
+.hospital-info h1 {
+  margin: 0; /* Suppression de la marge par défaut */
+  font-size: 24px; /* Taille du texte du titre */
+  color: #217ba1; /* Couleur du texte */
+  font-weight: bold; /* Poids du texte en gras */
 }
 
-.header .contact-info {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
+.hospital-info p {
+  margin: 0; /* Suppression de la marge par défaut */
+  font-size: 16px; /* Taille du texte du sous-titre */
+  color: #666; /* Couleur du texte */
 }
 
-.header .contact-info span {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.header .social-icons {
-  margin-top: 10px;
-}
-
-.header .social-icons a {
-  color: #004d99;
-  font-size: 22px;
-  margin-left: 15px;
-  transition: color 0.3s ease;
-}
-
-.header .social-icons a:hover {
-  color: #007bff;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .header .row {
-    text-align: center;
-  }
-
-  .header .contact-info,
-  .header .social-icons {
-    margin: 10px 0;
-  }
-
-  .header .hospital-info {
-    text-align: center;
-    margin-top: 10px;
-  }
-}
