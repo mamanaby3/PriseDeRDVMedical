@@ -1,1 +1,75 @@
-<p>register works!</p>
+<br><br><br><br>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">S'enregistrer</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm" class="shadow p-4 bg-light rounded">
+      <div class="form-group">
+          <label for="name">Nom:</label>
+          <input type="text" id="name" class="form-control" placeholder="Entrez votre nom" required [(ngModel)]="credentials.name" name="name" #name="ngModel">
+          <div *ngIf="name.errors?.['required'] && (name.dirty || name.touched)" class="alert alert-danger mt-2">
+            Nom requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" placeholder="Entrez votre email" required [(ngModel)]="credentials.email" name="email" #email="ngModel">
+          <div *ngIf="email.errors?.['required'] && (email.dirty || email.touched)" class="alert alert-danger mt-2">
+            Email requis.
+          </div>
+          <div *ngIf="email.errors?.['email'] && (email.dirty || email.touched)" class="alert alert-danger mt-2">
+            Adresse email invalide.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone:</label>
+          <input type="text" id="tel" class="form-control" placeholder="Entrez votre numéro de téléphone" required [(ngModel)]="credentials.tel" name="tel" #tel="ngModel">
+          <div *ngIf="tel.errors?.['required'] && (tel.dirty || tel.touched)" class="alert alert-danger mt-2">
+            Téléphone requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe:</label>
+          <input type="password" id="password" class="form-control" placeholder="Entrez votre mot de passe" required [(ngModel)]="credentials.password" name="password" #password="ngModel">
+          <div *ngIf="password.errors?.['required'] && (password.dirty || password.touched)" class="alert alert-danger mt-2">
+            Mot de passe requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation">Confirmer le mot de passe:</label>
+          <input type="password" id="password_confirmation" class="form-control" placeholder="Confirmez votre mot de passe" required [(ngModel)]="credentials.password_confirmation" name="password_confirmation" #passwordConfirmation="ngModel">
+          <div *ngIf="passwordConfirmation.errors?.['required'] && (passwordConfirmation.dirty || passwordConfirmation.touched)" class="alert alert-danger mt-2">
+            Confirmation du mot de passe requise.
+          </div>
+          <div *ngIf="password.value !== passwordConfirmation.value && passwordConfirmation.dirty" class="alert alert-danger mt-2">
+            Les mots de passe ne correspondent pas.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="role">Rôle:</label>
+          <select id="role" class="form-control" required [(ngModel)]="credentials.role" name="role" #role="ngModel">
+            <option value="">Sélectionner un rôle</option>
+            <option value="medecin">Médecin</option>
+            <option value="secretaire">Secrétaire</option>
+            <option value="patient">Patient</option>
+          </select>
+          <div *ngIf="role.errors?.['required'] && (role.dirty || role.touched)" class="alert alert-danger mt-2">
+            Rôle requis.
+          </div>
+        </div>
+        <div *ngIf="credentials.role === 'medecin'" class="form-group">
+          <label for="specialite_id">Spécialité:</label>
+          <input type="text" id="specialite_id" class="form-control" placeholder="Entrez votre spécialité" [(ngModel)]="credentials.specialite_id" name="specialite_id">
+        </div>
+        <div *ngIf="credentials.role === 'patient'" class="form-group">
+          <label for="dateNaissance">Date de Naissance:</label>
+          <input type="date" id="dateNaissance" class="form-control" [(ngModel)]="credentials.dateNaissance" name="dateNaissance">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid">S'enregistrer</button>
+        <div class="text-center mt-3">
+          <a href="/login">Déjà inscrit ? Connectez-vous</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

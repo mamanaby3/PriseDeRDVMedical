@@ -27,4 +27,19 @@ export class ApiService {
   register(user: { email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, user);
   }
+  sendResetLink(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  }
+
+  // Réinitialisation du mot de passe
+  resetPassword(data: { token: string, email: string, password: string, password_confirmation: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/password-reset]`, data);
+  }
+
+  searchSpecialite(name: string): Observable<any> {
+    // Encode le nom pour éviter les problèmes de caractères spéciaux dans l'URL
+    const encodedName = encodeURIComponent(name);
+    return this.http.get<any>(`${this.apiUrl}/specialites/search?name=${encodedName}`);
+  }
+
 }

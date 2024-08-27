@@ -6,30 +6,30 @@
   background-image: url('assets/assets/images/A.jpg'); /* Remplace avec le chemin vers ton image */
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Assure que le conteneur couvre toute la hauteur de la vue */
-  display: flex;
+  min-height: 80vh; /* Assure que le conteneur couvre toute la hauteur de la vue */
+
   align-items: center;
   justify-content: center;
 }
 
 /* Style pour le formulaire */
-
-/* Style spécifique pour le formulaire */
 .form-container {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-width: 400px; /* Limite la largeur du formulaire pour les écrans plus larges */
+  width: 100%; /* Assure que le formulaire prend toute la largeur disponible sur petits écrans */
 }
-
 
 /* Style pour le container avec une couleur de fond */
 .background-container {
   background-color: #ffffff; /* Couleur de fond pour le container */
   padding: 20px; /* Espacement interne */
-  border-radius: 8px; /* Coins arrondis (optionnel) */
+  border-radius: 8px; /* Coins arrondis */
   width: 100%; /* Prend toute la largeur disponible */
 }
+
 /* Style pour le container à l'intérieur du header */
 .header .container {
   display: flex; /* Utilisation du Flexbox */
@@ -68,3 +68,38 @@
   color: #666; /* Couleur du texte */
 }
 
+/* Styles pour les notifications */
+.success-snackbar {
+  background-color: #4caf50; /* Vert pour le succès */
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-snackbar {
+  background-color: #f44336; /* Rouge pour les erreurs */
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajout de styles responsifs */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1rem;
+    max-width: 100%; /* Assure que le formulaire occupe toute la largeur sur les petits écrans */
+  }
+}
+
+/* Assurer que l'application couvre toute la hauteur de la vue */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
