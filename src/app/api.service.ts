@@ -5,6 +5,7 @@ import { environment } from '../environments/environment';
 import { Specialite } from './models/specialite.model';
 import { User } from './models/user.model';
 import { Credentials } from './models/credentials.model';
+import {Medecin} from "./models/medecin.model";
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,14 @@ export class ApiService {
     // Encode le nom pour éviter les problèmes de caractères spéciaux dans l'URL
     const encodedName = encodeURIComponent(name);
     return this.http.get<any>(`${this.apiUrl}/specialites/search?name=${encodedName}`);
+  }
+
+  getMedecinsBySpecialite(specialiteId: number): Observable<Medecin[]> {
+    return this.http.get<Medecin[]>(`${this.apiUrl}/medecins?specialite_id=${specialiteId}`);
+  }
+
+  searchMedecins(name: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/specialites/search?name=${encodeURIComponent(name)}`);
   }
 
 }

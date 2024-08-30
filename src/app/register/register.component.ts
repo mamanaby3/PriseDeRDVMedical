@@ -46,7 +46,6 @@ export class RegisterComponent {
     }
   }
 
-
   // Méthode appelée lors de la soumission du formulaire
   onRegister(form: NgForm) {
     if (form.invalid) {
@@ -61,7 +60,7 @@ export class RegisterComponent {
 
     this.apiService.register(this.credentials).subscribe(
       response => {
-        if (response.success) {
+        if (response && response.success) {
           // Redirection après un enregistrement réussi
           this.router.navigate(['/login']);
         } else {

@@ -1,10 +1,9 @@
-<br><br><br><br>
 <div class="container mt-5">
   <h1 class="text-center mb-4">S'enregistrer</h1>
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm" class="shadow p-4 bg-light rounded">
-      <div class="form-group">
+        <div class="form-group">
           <label for="name">Nom:</label>
           <input type="text" id="name" class="form-control" placeholder="Entrez votre nom" required [(ngModel)]="credentials.name" name="name" #name="ngModel">
           <div *ngIf="name.errors?.['required'] && (name.dirty || name.touched)" class="alert alert-danger mt-2">
@@ -59,7 +58,10 @@
         </div>
         <div *ngIf="credentials.role === 'medecin'" class="form-group">
           <label for="specialite_id">Spécialité:</label>
-          <input type="text" id="specialite_id" class="form-control" placeholder="Entrez votre spécialité" [(ngModel)]="credentials.specialite_id" name="specialite_id">
+          <input type="text" id="specialite_id" class="form-control" placeholder="Entrez votre spécialité" [(ngModel)]="specialiteName" name="specialite_id" (ngModelChange)="onSpecialiteChange($event)">
+          <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+            {{ errorMessage }}
+          </div>
         </div>
         <div *ngIf="credentials.role === 'patient'" class="form-group">
           <label for="dateNaissance">Date de Naissance:</label>

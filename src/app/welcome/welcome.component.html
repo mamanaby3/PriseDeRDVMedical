@@ -1,0 +1,138 @@
+
+<!-- Wrapper -->
+<div class="wrapper">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Bienvenue sur notre site</h1>
+      <p>Votre bien-être est notre priorité. Trouvez les meilleurs médecins et spécialités facilement.</p>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="search">
+    <div class="container">
+      <h2>Rechercher un Médecin ou une Spécialité</h2>
+      <div class="search-form">
+        <input
+          #searchInput
+          type="text"
+          placeholder="Rechercher une spécialité"
+        />
+        <button (click)="onSearch(searchInput.value)">Rechercher</button>
+      </div>
+
+      <div *ngIf="filteredMedecins.length > 0" class="results">
+        <h3>Médecins disponibles :</h3>
+        <ul>
+          <li *ngFor="let medecin of filteredMedecins">
+            {{ medecin.user?.name || 'Nom non disponible' }} - {{ medecin.specialite?.nom || 'Spécialité non définie' }}
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="filteredMedecins.length === 0" class="no-results">
+        <p>Aucun médecin trouvé.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2>Nos Services</h2>
+      <div class="service-cards">
+        <div class="service-card">
+          <img src="assets/assets/images/service_01.jpg" alt="Consultations Médicales">
+          <h3>Consultations Médicales</h3>
+          <p>Consultez nos spécialistes pour des avis médicaux rapides et efficaces.</p>
+        </div>
+        <div class="service-card">
+          <img src="assets/assets/images/service_02.jpg" alt="Soins Dentaires">
+          <h3>Soins Dentaires</h3>
+          <p>Des soins dentaires professionnels pour toute la famille.</p>
+        </div>
+        <div class="service-card">
+          <img src="assets/assets/images/service_03.jpg" alt="Thérapies">
+          <h3>Thérapies</h3>
+          <p>Accédez à des thérapies adaptées à vos besoins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Témoignages de Nos Patients</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p>"Un service exceptionnel et des médecins très compétents. Je recommande vivement!"</p>
+          <h4>Jean Dupont</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>"J'ai trouvé le spécialiste dont j'avais besoin en un rien de temps. Merci pour l'efficacité!"</p>
+          <h4>Marie Curie</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>"Une expérience positive du début à la fin. Les consultations étaient très professionnelles."</p>
+          <h4>Paul Martin</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--  &lt;!&ndash; FAQ Section &ndash;&gt;-->
+<!--  <section class="faq">-->
+<!--    <div class="container">-->
+<!--      <h2>Questions Fréquemment Posées</h2>-->
+<!--      <div class="faq-items">-->
+<!--        <div class="faq-item">-->
+<!--          <h3>Comment prendre rendez-vous avec un médecin?</h3>-->
+<!--          <p>Vous pouvez prendre rendez-vous directement via notre site en recherchant le médecin ou la spécialité souhaitée et en suivant les instructions.</p>-->
+<!--        </div>-->
+<!--        <div class="faq-item">-->
+<!--          <h3>Quels sont les modes de paiement acceptés?</h3>-->
+<!--          <p>Nous acceptons les paiements par carte bancaire, PayPal et virement bancaire.</p>-->
+<!--        </div>-->
+<!--        <div class="faq-item">-->
+<!--          <h3>Comment puis-je annuler ou modifier un rendez-vous?</h3>-->
+<!--          <p>Pour annuler ou modifier un rendez-vous, veuillez nous contacter par téléphone ou via notre formulaire de contact.</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2>Contactez-Nous</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Votre Service. Tous droits réservés.</p>
+      <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+    </div>
+  </footer>
+</div>
+
+<!-- Inclure les scripts Angular -->
+<script src="main.js"></script>
